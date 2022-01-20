@@ -1,0 +1,235 @@
+body {
+    /*font: 1 rem / 1.4 san-serif; !* 33, 37, 41, 164 - base size is for mobile, use unitless multiplier for line-height *!*/
+    font-variant-ligatures: common-ligatures; /* 82 font-variant-* are supported in IE10+ and modern browsers */
+    font-variant-numeric: oldstyle-nums; /* 120 old-style "lowercase" numerals for text */
+}
+
+@media screen and (min-width: 60em) {
+    body { font-size: 1.125rem; } /* 61 size for tablet, laptop */
+}
+
+@media screen and (min-width: 120em) {
+    body { font-size: 1.1375rem; } /* 62 size for desktop */
+}
+
+article p:first-of-type::first-line {
+    font-variant-caps: small-caps; /* 99 to style run-ins */
+}
+
+p {
+    max-width: 1em; /* 24 suggested 23-38 em */
+    margin: auto; /* 25 if you want to center text */
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto; /* 50 caniuse.com/#feat=css-hyphens No desktop Chrome support */
+    /* 52 No support: hyphenate-limit-lines: 2; */
+    /* 53 No support: hyphenate-limit-chars: 6 3 2; */
+    /* 54 No support: hyphenate-limit-zone: 2em; */
+    /* 56 No support: hyphenate-limit-last: always; */
+
+    margin-bottom: 0; /* 104 indent paragraphs for long form; use space between for short form */
+    margin-bottom: 1.4em; /* 172 when using space between paragraphs, maintain vertical rhythm by setting bottom margin to size of line height */
+    /* 183 use ems to set margins in running text, percentages or vw for surrounding white space */
+}
+
+p + p {
+    margin-top: 0; /* 104 indent paragraphs for long form; use space between for short form */
+    text-indent: 1.5em; /* 104 indent paragraphs for long form; use space between for short form */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1; /* 98 less leading for headings */
+    /* 173 set heading line heights to maintain vertical rhythm */
+    font-variant-numeric: lining-nums; /* 122 lining "uppercase" numerals for headings */
+}
+
+/* 94, 95 set a hierarchy scale and adjust to different device sizes */
+h1 {
+    font-size: 2.0625rem; /* 33px */
+    font-size: 13vmin; /* 155 consider using vmin to scale large display headings with viewport */
+}
+
+h2 {
+    font-size: 1.5625rem; /* 25px */
+    font-size: calc(0.5rem + 2.5vmin); /* 158 consider using rem and vmin to scale subheadings modestly */
+}
+
+h3 {
+    font-size: 1.3125rem; /* 21px */
+}
+
+h4,
+h5,
+h6 { /* 97 even if you don't intend to use all of h1-h6, style them just in case */
+    font-size: 1rem; /* 16px */
+}
+
+@media screen and (min-width: 60em) and (min-height: 30em) {
+    h1 { font-size: 3.1875rem; /* 51px */ }
+    h2 { font-size: 2.0625rem; /* 33px */ }
+    h3 { font-size: 1.5625rem; /* 25px */ }
+    h4, h5, h6 { font-size: 1.125rem; /* 18px */ }
+    p { font-size: 1.125rem /* 18px */ }
+}
+
+@media screen and (min-width: 120em) and (min-height: 60em) {
+    h1 { font-size: 4.875rem; /* 78px */ }
+    h2 { font-size: 2.75rem; /* 44px */ }
+    h3 { font-size: 1.75rem; /* 28px */ }
+    h4, h5, h6 { font-size: 1.3125rem; /* 21px */ }
+    p { font-size: 1.3125rem; /* 21px */ }
+}
+
+/* 149 space all-caps headings a little */
+h1.upper-case {
+    letter-spacing: 0.5em;
+    margin-right: -0.5em; /* 149 compensate for incorrect spacing after last letter */
+    font-feature-settings: normal; /* 151 don't use ligatures when tracking */
+}
+
+/* 150 tighten title-cased headings a little */
+h1.title-case {
+    letter-spacing: -0.03em;
+}
+
+/* 166 use swashes when available and appropriate; can be stored in different numbered tables, eg swash(2); may need to turn on for individual characters */
+h1.swash {
+    font-variant-alternates: swash(1);
+}
+
+table {
+    border-collapse: collapse; /* 134 one border between cells */
+    font-variant-numeric: lining-nums tabular-nums; /* 133 use lining and tabular numerals for tables */
+}
+
+/* 130 set on header and body */
+table .numeric-column {
+    text-align: right;
+}
+
+/* 261 consider using the system font for functional text like captions */
+caption {
+    font: message-box;
+    font: -apple-system-body;
+    font-size: 1.2rem;
+}
+
+td,
+th {
+    line-height: 1; /* 134 */
+    padding: 0.125em 0.5em 0.25em 0.5em; /* 134 spacing for legibility */
+}
+
+/* 131 align to character
+   no browser support
+   eg 1.2 and 1.23 on ., 10 x 10 and 4 x 4 on x, 4:3 and 16:10 on :
+*/
+/* td.align-decimal { text-align: "." center; }*/
+
+/* 140 oblique headings when needed to save space; absolute position headings to shrink columns */
+th.oblique-heading {
+    transform-origin: bottom left;
+    position: absolute;
+}
+
+th.oblique-heading.table1 {
+    transform: translate(2.58em,-2em) rotate(-60deg);
+}
+
+/* 141 allow tables to scroll horizontally when necessary */
+figure.scrolling-table {
+    overflow-x: scroll;
+    max-width: 100%;
+}
+
+/* 143 responsive tables - display as list at breakpoint */
+@media (max-width: 25em) {
+    table,
+    caption,
+    tbody,
+    tr,
+    th,
+    td {
+        display: block;
+        text-align: left;
+    }
+
+    thead,
+    th:empty,
+    td:empty {
+        display: none;
+        visibility: hidden;
+    }
+
+    th[data-title]:before,
+    td[data-title]:before {
+        content: attr(data-title) ": ";
+        display: inline-block;
+        width: 3.5em;
+    }
+}
+
+abbr,
+.pn {
+    -ms-hyphens: manual;
+    -webkit-hyphens: manual;
+    hyphens: manual; /* 51 don't auto-hyphenate abbreviations and proper names */
+    /* caniuse.com/#feat=css-hyphens No desktop Chrome support */
+}
+
+abbr.smallcaps { /* 86 don't use in title-case headings */
+    font-variant-caps: all-small-caps; /* 86 if font has c2sc OpenType feature */
+
+    font-variant-caps: small-caps; /* 86 if font only has smcp OpenType feature */
+    text-transform: lowercase;
+}
+
+.historical-ligatures {
+    font-variant-ligatures: discretionary-ligatures historical-ligatures;
+}
+
+/* 102 to style horizontal rules with an image */
+
+ol,
+ul { /* 108 */
+}
+
+/* 106 style regular blockquotes (cited text) differently than pull quotes (attention grabbing) */
+blockquote {
+    /* 106 indent from left, italicize or reduce font size */
+    /* 106 align citation right, reduce font size, set off with em dash */
+}
+blockquote.pull-quote {
+    /* 106 increase font size */
+}
+
+a { /* 114 */
+}
+
+sub,
+sup { /* 124 removed default styles */
+    font-size: inherit;
+    vertical-align: inherit;
+}
+
+sub {
+    font-variant-position: sub; /* 123 correct subscript position */
+}
+
+
+/* 107 hang opening quote by giving it a negative left margin */
+.quoted p {
+    quotes: '“' '”' '‘' '’';
+}
+.quoted p::before {
+    content: open-quote;
+    margin-left: -0.83ch;
+}
+.quoted p::after {
+    content: close-quote;
+}
